@@ -1,0 +1,100 @@
+﻿@page
+@model WebApp.Pages.SamplePages.ControlsModel
+@{
+    ViewData["title"] = "Various Form Controls";
+}
+@section MyCustomCSS
+{
+    @*
+
+    *@
+    <partial name = "_MyCustomCSS"/>
+}
+
+<h1>Various Form Controls</h1>
+@if(!string.IsNullOrWhiteSpace(Model.FeedBack))
+{
+    <p>@Model.FeedBack</p>
+}
+
+    <section class="setFlex">
+        <div class="oneThird">
+            <h3>Text Boxes</h3>
+        <form method="post">
+            <label>
+                Enter an Email
+                <input type="email" asp-for="EmailText" placeholder="Enter Email" />
+            </label>
+            <br />
+            <label>
+                Enter a Password
+                <input type="password" asp-for="PasswordText" />
+            </label>
+            <br />
+            <label>
+                Enter a Date
+                <input type="date" asp-for="DateText"/>
+            </label>
+            <br />
+            <label>
+                Enter a Time
+                <input type="time" asp-for="TimeText" />
+            </label>
+            <br />
+
+                <button type="submit" value="textBox" id="theTextButton" name="theTextButton" 
+                    asp-page-handler="TextBox">
+                    Text Submit
+                </button>
+                </form>
+        </div>
+
+        <div class="oneThird">
+            <h3>Radio Buttons Checkbox Text Area</h3>
+            <form method="post">
+                <label>
+                    Select Favourite Meal
+                </label>
+                @*<input type="radio" value="breakfast" asp-for="Meal"/>
+                &nbsp; Breakfast <br />
+                <input type="radio" value="lunch" asp-for="Meal" />
+                &nbsp; Lunch <br />
+                <input type="radio" value="dinner" asp-for="Meal" />
+                &nbsp; dinner <br />
+                <input type="radio" value="snacks" asp-for="Meal" />
+                &nbsp; Snacks <br />
+                *@
+                @foreach(var item in Model.Meals)
+                {
+                    @*A space is needed for the display message, its a bug or something*@
+                    <input type="radio" value="@item" asp-for="Meal" /> @item<br />
+                }
+            
+                <label>
+                    <input type="checkbox" value="true" asp-for="AcceptanceBox"/>
+                    &nbsp; I Agree to Terms 
+                </label>
+                <label>
+                    Message
+                    <textarea rows="5" cols="60" placeholder="Enter Message" asp-for="MessageBody">
+
+                    </textarea>
+                </label>
+
+                <button type="submit" value="radioCheckArea" id="theRadioCheckAreaButton" 
+                    name="theRadioCheckAreaButton" asp-page-handler="RadioCheckArea">
+                    Radio/Check/Area Submit
+                </button>
+            </form>
+        </div>
+
+        <div class="oneThird">
+            <h3>List and Slider</h3>
+            <form method="post">
+                <button type="submit" value="listSlider" id="theListSlider" name="theListSlider"
+                        asp-page-handler="ListSlider">
+                    List/Slider Submit
+                </button>
+            </form>
+        </div>
+    </section>

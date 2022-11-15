@@ -7,6 +7,13 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/holiday.css@0.9.8" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/WebApp.styles.css" asp-append-version="true" />
+    @*RenderSection is way of allowing statements/code/tags to be placed in a certain area
+        of the layout. By default this is a required entry on each content page, using required: false 
+        makes this an optional entry on any content page. If the sections is used on a content page,
+        then the code within the section reference on the content page is merged in place here on the 
+        layout page.
+    *@
+    @RenderSection("MyCustomCSS", required: false)
 </head>
 <body>
     <header>
@@ -25,6 +32,9 @@
                     <ul style="margin:0">
                         <li>
                             <a asp-area="" asp-page="/SamplePages/Basics">Basics</a>
+                        </li>
+                        <li>
+                            <a asp-area="" asp-page="/SamplePages/Controls">Controls</a>
                         </li>
                     </ul>
                 </li>
