@@ -18,7 +18,7 @@ namespace WebApp.Pages.SamplePages
         //  Data is transfered between the two automatically
         //  On the content page, the control to use this property will have a 
         //      helper-tag called asp-for
-        [BindProperty]
+        [BindProperty(SupportsGet = true)]
         public int? ID { get; set; } // must make nullable so we can save it on our page
 
         // The tempdata annotation stores data until it's read in another
