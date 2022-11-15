@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - WebApp</title>
+    <title>@ViewData["Title"]</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/holiday.css@0.9.8" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/WebApp.styles.css" asp-append-version="true" />
@@ -11,9 +11,6 @@
 <body>
     <header>
         <nav>
-            <div>
-                <a  asp-area="" asp-page="/Index">WebApp</a>
-                <div >
                     <ul>
                         <li>
                             <a asp-area="" asp-page="/Index">
@@ -24,12 +21,18 @@
                             <a asp-area="" asp-page="/Index">Home</a>
                         </li>
                         <li>
+                            <span>Samples</span>
+                            <ul style="margin:0">
+                                <li>
+                                    <a asp-area="" asp-page="/SamplePages/Basics">Basics</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
                             <a asp-area="" asp-page="/Privacy">Privacy</a>
                         </li>
                         <partial name="_LoginPartial" />
                     </ul>
-                </div>
-            </div>
         </nav>
     </header>
     <div>
