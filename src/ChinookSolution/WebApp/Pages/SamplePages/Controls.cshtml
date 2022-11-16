@@ -91,6 +91,32 @@
         <div class="oneThird">
             <h3>List and Slider</h3>
             <form method="post">
+                <label>
+                    Select your favourite ride
+                    <select asp-for="MyRide">
+                        <option value="0">
+                            Select Ride...
+                        </option>
+                        @foreach (var ride in Model.Rides)
+                        {
+                            <option value= "@ride.ValueID">@ride.DisplayText</option> 
+                        }
+                    </select>
+                </label>
+                <label>
+                    Select your favourite vacation spot
+                    <input type="text" asp-for="VacationSpot" list="VacationChoices"/>
+                    <datalist id="VacationChoices">
+                        @foreach(var spot in Model.VacationSpots)
+                        {
+                            <option value="@spot"></option>
+                        }
+                    </datalist>
+                </label>
+                <label>
+                    Rate the form control review (bad - good)
+                    <input type="range" min="0" max="10" step="1" value="5" asp-for="ReviewRating"/>
+                </label>
                 <button type="submit" value="listSlider" id="theListSlider" name="theListSlider"
                         asp-page-handler="ListSlider">
                     List/Slider Submit
