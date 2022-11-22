@@ -38,6 +38,27 @@
                         </li>
                     </ul>
                 </li>
+                @*
+                    Setup a submenu using holiday css
+
+                    Start with an li tag
+                    within the li add a span tag
+                    Add a ul tag
+                    within the ul you can add any number of li menu items
+                *@
+                <li>
+                    <span>
+                        My Project
+                        </span>
+                        <ul>
+                            <li>
+                                @*Replace /MyProjectPages with your actual /ProjectPages/xxx *@
+                                <a asp-area="" asp-page="/MyProjectPages/Index">
+                                    Default Sample Page Home    
+                                </a>
+                            </li>
+                        </ul>
+                </li>
                 <li>
                     <a asp-area="" asp-page="/Privacy">Privacy</a>
                 </li>
