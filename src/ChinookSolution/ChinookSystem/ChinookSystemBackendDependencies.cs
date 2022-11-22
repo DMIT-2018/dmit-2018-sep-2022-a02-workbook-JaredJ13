@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ChinookSystem.BLL;
 using ChinookSystem.DAL;
 
 #region Additional Namespaces
@@ -22,6 +23,14 @@ namespace ChinookSystem
 
             // Add any services that you create in the class library
             // using .AddTransient<t>(...)
+
+            services.AddTransient<AboutServices>((serviceProvider) =>
+                {
+                    var context = serviceProvider.GetRequiredService<Chinook2018Context>();
+                    // Create an instance of the service and return the instance
+                    return new AboutServices(context);
+                }
+            );
         }
     }
 }
